@@ -1,0 +1,275 @@
+:root {
+  /* Surfaces */
+  --color-bg: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-surface-sunken: #F2F5F4;
+
+  /* Brand / teal */
+  --color-teal-900: #0B3B38;
+  --color-teal-700: #0F6B63;
+  --color-teal-600: #12897D;
+  --color-teal-500: #1AA595;
+  --color-teal-100: #E3F2F0;
+
+  /* Text */
+  --color-text-primary: #14201E;
+  --color-text-secondary: #5B6B68;
+  --color-text-tertiary: #8B9895;
+
+  /* Borders */
+  --color-border: #E4E9E8;
+  --color-border-strong: #CBD5D3;
+
+  /* Risk semantics */
+  --color-risk-high: #C4432E;
+  --color-risk-high-bg: #FBEAE6;
+  --color-risk-medium: #C17A1F;
+  --color-risk-medium-bg: #FBF0E0;
+  --color-risk-low: #1E8C6F;
+  --color-risk-low-bg: #E4F3EE;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(20, 32, 30, 0.04);
+  --shadow-md: 0 4px 16px rgba(20, 32, 30, 0.06);
+  --shadow-lg: 0 12px 32px rgba(20, 32, 30, 0.10);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* Type */
+  --font-serif: 'Source Serif 4', 'Lora', Georgia, serif;
+  --font-sans: 'Inter', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 600ms;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--color-teal-600);
+  outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.ripple-ring-1 {
+  animation: ripple 1.8s var(--ease-standard) infinite;
+}
+
+.ripple-ring-2 {
+  animation: ripple 1.8s var(--ease-standard) 0.6s infinite;
+}
+
+.ripple-ring-3 {
+  animation: ripple 1.8s var(--ease-standard) 1.2s infinite;
+}
+
+/* Markdown styling inside cards and fallback containers */
+.markdown-body {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--color-text-primary);
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.markdown-body p {
+  margin-bottom: 12px;
+  max-width: 100%;
+}
+
+.markdown-body p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 24px;
+  margin: 12px 0;
+  max-width: 100%;
+}
+
+.markdown-body li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.markdown-body li > ul,
+.markdown-body li > ol {
+  margin: 4px 0 6px 0;
+  padding-left: 20px;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.markdown-body blockquote {
+  border-left: 3px solid var(--color-teal-500);
+  padding: 8px 14px;
+  background-color: var(--color-surface-sunken);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin: 12px 0;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  max-width: 100%;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 13.5px;
+}
+
+.markdown-body th, .markdown-body td {
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  text-align: left;
+  min-width: 120px;
+}
+
+.markdown-body th {
+  background-color: var(--color-surface-sunken);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.markdown-body tr:nth-child(even) {
+  background-color: var(--color-surface-sunken);
+}
+
+.markdown-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background-color: var(--color-surface-sunken);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid var(--color-border);
+  word-break: break-word;
+}
+
+.markdown-body pre {
+  background-color: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 12px 0;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  font-size: 13px;
+  word-break: normal;
+  white-space: pre;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  font-family: var(--font-serif);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  color: var(--color-text-primary);
+}
+
+.markdown-body h1 { font-size: 24px; }
+.markdown-body h2 { font-size: 20px; }
+.markdown-body h3 { font-size: 17px; }
+.markdown-body h4 { font-size: 15px; }
+
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 20px 0;
+}
+
+/* Droplet background motif with 10% opacity */
+.droplet-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/droplet.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+}
