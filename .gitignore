@@ -3,3 +3,5 @@
 __pycache__/
 frontend/node_modules/
 frontend/dist/
+desktop.ini
+Thumbs.db
